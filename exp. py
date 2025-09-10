@@ -1,1 +1,146 @@
-print("hi") 
+
+"""import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# More linear numeric dataset
+strength = np.array([50, 60, 70, 80, 90, 100, 110, 120]).reshape(-1, 1)
+bounty = np.array([200, 400, 600, 800, 1000, 1200, 1400, 1600])
+
+# Train model
+model = LinearRegression()
+model.fit(strength, bounty)
+
+# Predictions
+predicted_bounty = model.predict(strength)
+
+# Plot
+plt.figure(figsize=(8,6))
+plt.scatter(strength, bounty, color='blue', s=80, label="Bounty Data")
+plt.plot(strength, predicted_bounty, color='red', linewidth=2, label="Regression Line")
+plt.title("One Piece: Strength vs Bounty (Linear)", fontsize=14, fontweight='bold')
+plt.xlabel("Strength Level")
+plt.ylabel("Bounty (Millions)")
+plt.grid(alpha=0.5)
+plt.legend()
+plt.show()
+
+# Slope & Intercept
+print("Slope (m):", model.coef_[0])
+print("Intercept (c):", model.intercept_)"""
+
+
+"""import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# Dataset (Strength, Haki) -> Bounty in billions
+X = np.array([
+    [5, 4],   # medium strength + haki
+    [6, 5],
+    [7, 5],
+    [8, 6],
+    [9, 6],
+    [10, 7],
+    [11, 8],
+    [12, 9],
+    [13, 9],
+    [14, 10]   # very strong + haki
+])
+
+# Bounty (in billions)
+y = np.array([0.5, 0.8, 1.0, 1.5, 1.8, 2.2, 2.8, 3.2, 3.5, 4.0])
+
+# Train model
+model = LinearRegression()
+model.fit(X, y)
+
+# Predictions
+y_pred = model.predict(X)
+
+# Plot (index vs values for visualization)
+plt.figure(figsize=(8,6))
+plt.scatter(range(len(y)), y, color='blue', label='Actual Bounty')
+plt.plot(range(len(y)), y_pred, color='red', label='Predicted Bounty')
+plt.title("One Piece: Strength & Haki vs Bounty", fontsize=14, fontweight='bold')
+plt.xlabel("Observations (Characters)")
+plt.ylabel("Bounty (Billions of Berries)")
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# Display coefficients and intercept
+print("Coefficients (Strength, Haki):", model.coef_)
+print("Intercept:", model.intercept_)"""
+
+
+
+
+"""import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+
+# Dataset: Strength level (1–10) vs Bounty (in millions, exaggerated growth)
+strength = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).reshape(-1, 1)
+bounty = np.array([10, 30, 80, 160, 300, 500, 800, 1200, 1800, 2500])
+
+# Transform data for polynomial regression (degree=2)
+poly = PolynomialFeatures(degree=2)
+X_poly = poly.fit_transform(strength)
+
+# Train model
+model = LinearRegression()
+model.fit(X_poly, bounty)
+
+# Predictions
+predicted_bounty = model.predict(X_poly)
+
+# Plot
+plt.figure(figsize=(8,6))
+plt.scatter(strength, bounty, color='blue', s=80, label='Actual Bounty')
+plt.plot(strength, predicted_bounty, color='red', linewidth=2, label='Polynomial Regression Curve')
+plt.title("One Piece: Strength vs Bounty (Polynomial Regression)", fontsize=14, fontweight='bold')
+plt.xlabel("Strength Level")
+plt.ylabel("Bounty (Millions of Berries)")
+plt.legend()
+plt.grid(alpha=0.5)
+plt.show()
+
+# Display coefficients and intercept
+print("Coefficients:", model.coef_)
+print("Intercept:", model.intercept_)"""
+
+
+
+"""import matplotlib.pyplot as plt
+import numpy as np
+
+# One Piece sample data (Strength vs Bounty)
+strength = np.array([1, 2, 3, 4, 5])                 # Strength levels
+actual_bounty = np.array([50, 120, 200, 350, 500])   # Actual bounty in millions
+predicted_bounty = np.array([60, 110, 210, 340, 480]) # Predicted bounty
+
+# Residuals = Actual - Predicted
+residuals = actual_bounty - predicted_bounty
+
+# Plot residuals
+plt.figure(figsize=(8,6))
+plt.scatter(strength, residuals, color='blue', s=80)
+plt.axhline(y=0, color='red', linestyle='--')  # Reference line at 0
+plt.title("One Piece: Residuals Plot (Bounty Prediction)", fontsize=14, fontweight='bold')
+plt.xlabel("Strength Level")
+plt.ylabel("Residual (Actual - Predicted Bounty in Millions)")
+plt.grid(alpha=0.5)
+plt.show()"""
+
+import numpy as np
+from sklearn.metrics import mean_squared_error, r2_score
+y = np.array([2, 4, 5, 4, 5])
+y_pred = np.array([2.2, 3.8, 5.1, 4.3, 4.9])
+print(f"R-squared: {r2_score(y, y_pred)}")
+print(f"Mean Squared Error: {mean_squared_error(y, y_pred)}")
+
+
+
+
